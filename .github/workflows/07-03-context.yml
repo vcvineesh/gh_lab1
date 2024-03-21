@@ -1,0 +1,26 @@
+name: 07-03-context 
+
+on: 
+  workflow_dispatch:
+    inputs: 
+      myinput:
+        type: choice 
+        description: enter your name
+        options: 
+          - monalisa
+          - cschleiden
+      message:
+        required: true
+      use-emoji:
+        type: boolean
+        description: Include 🎉🤣 emojis
+    
+        #default: vijay
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Display Event Information 
+       run: echo helloworld ${{ inputs.myinput}}

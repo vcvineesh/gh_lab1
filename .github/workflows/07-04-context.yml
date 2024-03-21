@@ -1,0 +1,12 @@
+name: 07-04-context 
+
+on: workflow_dispatch
+env:
+    localenvvar: ${{ vars.TEST_ENV_REPO }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+     - name: Display Event Information
+       run: echo "hello world ${{ env.localenvvar }}"
