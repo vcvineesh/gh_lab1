@@ -1,0 +1,23 @@
+name: 10-01-functions
+#on: push
+on: workflow_dispatch
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step 1
+        run: |
+          echo "Hello World"
+      - name: step 2
+        if: ${{ always() }}
+        run: echo "always"
+      - name: step 3
+        if: ${{ failure() }}
+        run: echo "faliuer"    
+      - name: step 4
+        if: ${{ success() }}
+        run: echo "success"    
+      - name: step 5
+        if: ${{ cancelled() }}
+        run: echo "cancelled"  
+  
